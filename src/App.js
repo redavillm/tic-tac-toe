@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+const numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+let move = true;
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="move">Сейчас ход: {move ? "X" : "O"}</div>
+      <div className="grid">
+        {numArr.map(el => (
+          <div className="field" id={el}>O</div>
+        ))}
+      </div>
+      <button className="reset">Reset</button>
     </div>
   );
 }
