@@ -1,3 +1,6 @@
+body {
+  background: rgb(209, 209, 209);
+}
 .App {
   text-align: center;
 }
@@ -21,4 +24,17 @@
   font-size: 100px;
   padding-top: 30px;
   text-transform: uppercase;
+}
+
+.cell:hover {
+  background-color: rgb(175, 175, 175);
+  transition: .3s all ease;
+}
+
+.reset {
+  color: white;
+  outline: none;
+  width: 100px;
+  height: 50px;
+  background-color: rgb(80, 80, 80);
 }
