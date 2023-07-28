@@ -1,10 +1,10 @@
-import Game from "./components/Game";
+import GameStateFull from "./components/GameStateFull";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Game />
+      <GameStateFull />
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Cell from "./Cell";
 import { findWinner } from "../check";
+import GameStateLess from "./GameStateLess";
 
-const Game = () => {
+const GameStateFull = () => {
   let [index, setIndex] = useState(true);
   const [cells, setCells] = useState(Array(9).fill(""));
   const isWinner = findWinner(cells);
@@ -23,22 +23,14 @@ const Game = () => {
   };
 
   return (
-    <>
-      <div className="index">
-        {isWinner
-          ? "Победил " + isWinner
-          : "Сейчас ходит " + (index ? "X" : "O")}
-      </div>
-      <div className="grid">
-        {cells.map((cell, i) => (
-          <Cell key={i} cell={cell} click={() => click(i)} />
-        ))}
-      </div>
-      <button className="reset" onClick={reset}>
-        Reset
-      </button>
-    </>
+    <GameStateLess
+      index={index}
+      cells={cells}
+      isWinner={isWinner}
+      click={click}
+      reset={reset}
+    />
   );
 };
 
-export default Game;
+export default GameStateFull;

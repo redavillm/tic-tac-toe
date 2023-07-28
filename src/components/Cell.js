@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Cell = ({ cell, click }) => {
   return (
     <div className="cell" onClick={click}>
@@ -5,6 +7,11 @@ const Cell = ({ cell, click }) => {
     </div>
   );
 };
+
+Cell.propTypes = {
+  cell: PropTypes.string,
+  click: PropTypes.func
+}
 
 export default Cell;
   
