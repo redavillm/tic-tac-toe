@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Cell = ({ cell, click }) => {
   return (
@@ -10,8 +10,7 @@ const Cell = ({ cell, click }) => {
 
 Cell.propTypes = {
   cell: PropTypes.string,
-  click: PropTypes.func
-}
+  click: PropTypes.func,
+};
 
 export default Cell;
-  
