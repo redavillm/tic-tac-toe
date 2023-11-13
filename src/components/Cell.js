@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { store } from "../store/store";
-import { addValue } from "../store/action";
+import { addValue } from "../store/actions";
 
 const Cell = ({ cell, index, isWinner }) => {
   const click = (cell) => {

@@ -1,4 +1,4 @@
-import { resetGame } from "../store/action";
+import { resetGame } from "../store/actions";
 import { store } from "../store/store";
 import Cell from "./Cell";
 import PropTypes from "prop-types";
@@ -8,15 +8,17 @@ const GameStateLess = ({ whoseTurn, cells, isWinner, noWinder }) => {
     store.dispatch(resetGame);
   };
 
+  const stepInfo = () => {
+    return isWinner
+      ? "Победил " + isWinner
+      : noWinder
+      ? "No one won!"
+      : "Active player " + (whoseTurn ? "X" : "O");
+  };
+
   return (
     <>
-      <div className="index">
-        {isWinner
-          ? "Победил " + isWinner
-          : noWinder
-          ? "No one won!"
-          : "Active player " + (whoseTurn ? "X" : "O")}
-      </div>
+      <div className="index">{stepInfo()}</div>
       <div className="grid">
         {cells.map((cell, index) => (
           <Cell key={index} index={index} cell={cell} isWinner={isWinner} />

@@ -9,8 +9,6 @@ const GameStateFull = () => {
   const [cells, setCells] = useState(cellsValue);
   const isWinner = findWinner(cells);
   const noWinder = nobodyWon(cells);
-  console.log("isWinner", isWinner);
-  console.log("noWinder", noWinder);
 
   store.subscribe(() => {
     const { cellsValue } = store.getState();
