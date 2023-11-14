@@ -1,11 +1,12 @@
-import { resetGame } from "../store/actions";
-import { store } from "../store/store";
+import { useDispatch } from "react-redux";
+import { RESET_GAME } from "../store/actions";
 import Cell from "./Cell";
 import PropTypes from "prop-types";
 
 const GameStateLess = ({ whoseTurn, cells, isWinner, noWinder }) => {
+  const dispatch = useDispatch();
   const reset = () => {
-    store.dispatch(resetGame);
+    dispatch(RESET_GAME);
   };
 
   const stepInfo = () => {

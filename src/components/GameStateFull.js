@@ -1,23 +1,14 @@
-import { useState } from "react";
 import GameStateLess from "./GameStateLess";
-import { findWinner, nobodyWon } from "../check";
-import { store } from "../store/store";
+import { findWinner, nobodyWon } from "../check.js";
+import { useSelector } from "react-redux";
+import { selectCells, selectWhoseTurnValue } from "../store/selectors";
 
 const GameStateFull = () => {
-  const { cellsValue, whoseTurnValue } = store.getState();
-  const [whoseTurn, setWhoseTurn] = useState(whoseTurnValue);
-  const [cells, setCells] = useState(cellsValue);
+  const cells = useSelector(selectCells);
+  const whoseTurn = useSelector(selectWhoseTurnValue);
+
   const isWinner = findWinner(cells);
   const noWinder = nobodyWon(cells);
-
-  store.subscribe(() => {
-    const { cellsValue } = store.getState();
-    setCells(cellsValue);
-  });
-  store.subscribe(() => {
-    const { whoseTurnValue } = store.getState();
-    setWhoseTurn(whoseTurnValue);
-  });
 
   return (
     <GameStateLess

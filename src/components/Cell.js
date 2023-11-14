@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
-import { store } from "../store/store";
 import { addValue } from "../store/actions";
+import { useDispatch } from "react-redux";
 
 const Cell = ({ cell, index, isWinner }) => {
+  const dispatch = useDispatch();
   const click = (cell) => {
     if (isWinner) {
       return;
     }
-    return cell === "" ? store.dispatch(addValue(index)) : cell;
+    return cell === "" ? dispatch(addValue(index)) : cell;
   };
 
   return (
